@@ -11,7 +11,7 @@
         <entry key="app/src/main/res/drawable/splash_background.xml" value="0.106" />
         <entry key="app/src/main/res/drawable/splash_fg.xml" value="0.1785" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.13011815167855523" />
-        <entry key="app/src/main/res/layout/all_notes_fragment.xml" value="0.31522979736328127" />
+        <entry key="app/src/main/res/layout/all_notes_fragment.xml" value="0.362445068359375" />
         <entry key="app/src/main/res/layout/create_note.xml" value="0.11557617187499997" />
         <entry key="app/src/main/res/layout/login_fragment.xml" value="0.23754577636718743" />
         <entry key="app/src/main/res/layout/note_item.xml" value="0.27831776936848956" />

@@ -4,11 +4,27 @@
                                                    xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
                                                    android:layout_height="match_parent">
 
+    <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            app:layout_constraintEnd_toEndOf="@+id/notes_list" app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/topBar"
+            android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+                android:id="@+id/topAppBar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:title="All Notes"
+                style="@style/Widget.MaterialComponents.Toolbar.Primary"
+        />
+
+    </com.google.android.material.appbar.AppBarLayout>
     <androidx.recyclerview.widget.RecyclerView
             android:layout_width="409dp"
             android:id="@+id/notes_list"
             android:layout_height="657dp"
             tools:listitem="@layout/note_item"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="1.0"/>
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintTop_toBottomOf="@+id/topBar"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

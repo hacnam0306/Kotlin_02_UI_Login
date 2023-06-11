@@ -10,12 +10,15 @@ import com.example.fragmentloginui.R
 import com.example.fragmentloginui.authentication.AuthViewModel
 import com.example.fragmentloginui.authentication.model.LoginRequest
 import com.example.fragmentloginui.authentication.services.AuthApiState
+import com.example.fragmentloginui.authentication.utils.TokenManager
 import com.example.fragmentloginui.databinding.LoginFragmentBinding
 import com.example.fragmentloginui.home.noteList.AllNotesFragment
 
 class LoginFragment : Fragment(R.layout.login_fragment),View.OnClickListener {
     private lateinit var binding: LoginFragmentBinding
     private val viewModel: AuthViewModel by viewModels()
+    private lateinit var tokenManager: TokenManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         observerData()
@@ -25,6 +28,7 @@ class LoginFragment : Fragment(R.layout.login_fragment),View.OnClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         binding = LoginFragmentBinding.bind(view)
+        tokenManager = TokenManager(requireContext())
 
         binding.navigateRegister.setOnClickListener {
             val registerFragment = RegisterFragment()
@@ -72,6 +76,7 @@ class LoginFragment : Fragment(R.layout.login_fragment),View.OnClickListener {
             when(it){
                 is AuthApiState.Success ->{
                     val noteFragment = AllNotesFragment()
+                    tokenManager.saveToken(it.response.refreshToken)
                     parentFragmentManager.commit {
                         replace(R.id.login_fragment, noteFragment)
                         addToBackStack(null) // Optional: Add the transaction to the back stack
